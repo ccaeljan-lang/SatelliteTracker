@@ -32,7 +32,8 @@ class N2YO:
     def get_positions(self, satellite_id, latitude, longitude, altitude, seconds):
         # formatted url with other stuffs
         url = (
-            f"{self.BASE_URL}/tle/{satellite_id}/"
+            f"{self.BASE_URL}/positions/"
+            f"{satellite_id}/"
             f"{latitude}/"
             f"{longitude}/"
             f"{altitude}/"
