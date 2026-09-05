@@ -27,3 +27,27 @@ class N2YO:
 
         # return tle data in json form
         return response.json()
+
+    # methods to get positions
+    def get_positions(self, satellite_id, latitude, longitude, altitude, seconds):
+        # formatted url with other stuffs
+        url = (
+            f"{self.BASE_URL}/tle/{satellite_id}/"
+            f"{latitude}/"
+            f"{longitude}/"
+            f"{altitude}/"
+            f"{seconds}"
+        )
+
+        params = {
+            "apiKey": self.api_key
+        }
+
+        # response request to get tle data
+        response = requests.get(url, params=params)
+
+        # check status
+        response.raise_for_status()
+
+        # return tle data in json form
+        return response.json()
